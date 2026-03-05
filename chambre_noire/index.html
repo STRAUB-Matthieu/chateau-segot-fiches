@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chateau Segot &mdash; Chambre Noire</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+      background: #FAF8F0;
+      color: #2C1810;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+    h1 {
+      font-size: 2rem;
+      font-style: italic;
+      color: #1C1C2E;
+      margin-bottom: 0.3rem;
+      font-weight: 400;
+    }
+    .room-name {
+      color: #C9A84C;
+      font-size: 1rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .separator {
+      width: 80px;
+      height: 1px;
+      background: #C9A84C;
+      margin: 0 auto 2rem;
+    }
+    .loading {
+      font-style: italic;
+      color: #888;
+      margin-bottom: 2rem;
+    }
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+      max-width: 320px;
+    }
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      padding: 1rem 1.5rem;
+      min-height: 56px;
+      background: #fff;
+      border: 1.5px solid #1C1C2E;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #1C1C2E;
+      font-family: inherit;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn:hover, .btn:focus {
+      background: #1C1C2E;
+      color: #FAF8F0;
+      transform: translateY(-1px);
+    }
+    .btn:active {
+      transform: translateY(0);
+    }
+    .flag {
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      color: #999;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chateau Segot</h1>
+  <p class="room-name">Chambre Noire</p>
+  <div class="separator"></div>
+
+  <noscript>
+    <div class="buttons">
+      <a class="btn" href="fiche_chambre_noire.pdf">
+        <span class="flag">&#127467;&#127479;</span> Fiche en fran&ccedil;ais
+      </a>
+      <a class="btn" href="fiche_chambre_noire_en.pdf">
+        <span class="flag">&#127468;&#127463;</span> Room information (English)
+      </a>
+      <a class="btn" href="fiche_chambre_noire_de.pdf">
+        <span class="flag">&#127465;&#127466;</span> Zimmerinformation (Deutsch)
+      </a>
+    </div>
+  </noscript>
+
+  <div id="js-content" style="display:none;">
+    <p class="loading" id="redirect-msg">Redirection automatique...</p>
+    <div class="buttons" id="manual-buttons" style="display:none;">
+      <a class="btn" href="fiche_chambre_noire.pdf">
+        <span class="flag">&#127467;&#127479;</span> Fiche en fran&ccedil;ais
+      </a>
+      <a class="btn" href="fiche_chambre_noire_en.pdf">
+        <span class="flag">&#127468;&#127463;</span> Room information (English)
+      </a>
+      <a class="btn" href="fiche_chambre_noire_de.pdf">
+        <span class="flag">&#127465;&#127466;</span> Zimmerinformation (Deutsch)
+      </a>
+    </div>
+  </div>
+
+  <footer>chateausegot.fr</footer>
+
+  <script>
+    (function() {
+      document.getElementById('js-content').style.display = 'block';
+
+      var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+      var pdf = null;
+
+      if (lang.indexOf('fr') === 0) {
+        pdf = 'fiche_chambre_noire.pdf';
+      } else if (lang.indexOf('en') === 0) {
+        pdf = 'fiche_chambre_noire_en.pdf';
+      } else if (lang.indexOf('de') === 0) {
+        pdf = 'fiche_chambre_noire_de.pdf';
+      }
+
+      if (pdf) {
+        window.location.replace(pdf);
+      } else {
+        document.getElementById('redirect-msg').style.display = 'none';
+        document.getElementById('manual-buttons').style.display = 'flex';
+      }
+    })();
+  </script>
+</body>
+</html>
