@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chateau Segot &mdash; Fiches de presentation</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+      background: #FAF8F0;
+      color: #2C1810;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1rem;
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-style: italic;
+      color: #1B3A5C;
+      margin-bottom: 0.3rem;
+      font-weight: 400;
+    }
+    .subtitle {
+      color: #C9A84C;
+      font-size: 1rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+    }
+    .separator {
+      width: 120px;
+      height: 1px;
+      background: #C9A84C;
+      margin: 0 auto 2.5rem;
+    }
+    .chambres {
+      list-style: none;
+      width: 100%;
+      max-width: 500px;
+    }
+    .chambres li {
+      margin-bottom: 1rem;
+    }
+    .chambres a {
+      display: block;
+      padding: 1rem 1.5rem;
+      background: #fff;
+      border: 1px solid #e0d8c8;
+      border-left: 4px solid;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #2C1810;
+      font-size: 1.1rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .chambres a:hover {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transform: translateY(-1px);
+    }
+    .chambres .disabled {
+      opacity: 0.45;
+      pointer-events: none;
+      border-left-color: #ccc !important;
+    }
+    .chambres .tag {
+      font-size: 0.75rem;
+      color: #999;
+      font-style: italic;
+      margin-left: 0.5rem;
+    }
+    footer {
+      margin-top: auto;
+      padding-top: 3rem;
+      font-size: 0.85rem;
+      color: #999;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chateau Segot</h1>
+  <p class="subtitle">Fiches de presentation</p>
+  <div class="separator"></div>
+  <ul class="chambres">
+    <li><a href="chambre_bleue/" style="border-left-color: #1B3A5C;">Chambre Bleue</a></li>
+    <li><a href="chambre_noire/" class="disabled" style="border-left-color: #1C1C2E;">Chambre Noire <span class="tag">bientot</span></a></li>
+    <li><a href="chambre_rose/" class="disabled" style="border-left-color: #C9768A;">Chambre Rose <span class="tag">bientot</span></a></li>
+    <li><a href="studio/" class="disabled" style="border-left-color: #6B1E2E;">Studio <span class="tag">bientot</span></a></li>
+    <li><a href="suite_familiale/" class="disabled" style="border-left-color: #2C4A2E;">Suite Familiale <span class="tag">bientot</span></a></li>
+  </ul>
+  <footer>chateausegot.fr &middot; Allier, Auvergne-Rhone-Alpes</footer>
+</body>
+</html>
